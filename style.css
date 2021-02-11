@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+
+/* --- css reset --- */
+
+*, *::before, *::after {
+	box-sizing: border-box; 
+	margin: 0;
+	padding: 0; 
+}
+
+a, a:hover, a:visited, a:link, a:active {
+	text-decoration: none;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+/* --- start from here --- */
+
+body * {
+	font-family: 'Poppins', sans-serif;
+	border: 2px dashed lightpink;
+}
+
+body {
+	margin: 10px;
+}
+
+body>* {
+	margin: auto;
+	padding: 5px 0 10px 0;
+	width: 50%;
+	min-width: 400px;
+	max-width: 700px;
+}
+
+canvas {
+	width: 95%;
+	height: 600px;
+	min-width: 600px;
+	max-width: 95%;
+
+	white-space: pre;
+}
