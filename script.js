@@ -7,8 +7,9 @@ var iconId = [];
 var icon = [];
 
 $(document).ready(function() {
+    console.log("loading script.js");
 
-    let API_KEY = config.MY_KEY;
+    var API_KEY = key.MY_KEY;
     var city_name = 'Marseille';
 
     // openweathermap.org/forecast5
