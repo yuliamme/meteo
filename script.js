@@ -46,7 +46,7 @@ $(document).ready(function() {
 
         console.log('canvas...');
         var ctx = $('#canvas')[0].getContext('2d');
-        window.myLine = new Chart(ctx, config);
+        window.myLine = new Chart(ctx, configChart);
 
     });
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 
 
-var config = {
+var configChart = {
     type: 'line',
     data: {
         labels: time,
