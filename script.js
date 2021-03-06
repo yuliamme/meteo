@@ -1,4 +1,5 @@
 
+// arrays for various chart data 
 var time = [];
 var temp = [];
 var feels = [];
@@ -8,48 +9,56 @@ var icon = [];
 
 $(document).ready(function() {
     console.log("loading script.js");
-
-    var API_KEY = config.MY_KEY;
-    var city_name = 'Marseille';
-
+    
+    const API_KEY = key.MY_KEY; 
+    const city_name = 'Marseille';
+    $('#city').html(city_name);
+    
     // openweathermap.org/forecast5
     // get timestamped data every 3hrs for 5 days, total 8data/day * 5days = 40 entries
     let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city_name}&mode=json&units=metric&appid=${API_KEY}`;
-
-    $.getJSON(url).then(function(res) {
-        console.log(res);
-        var data = res.list;
-        var days = [];
+    
+    $.getJSON(url).then(res => {
+        console.log('suuuuuup',res.list[0]); 
+        const data = res.list; 
+        const days = []; 
         for (i = 4; i < data.length; i=i+8) {
             days.push(data[i]);
         }
-        let t = Math.floor(days[0].main.temp);
-        let condition = days[0].weather[0].main;
-        $('#temp-main').html(`${t}°`);
-        $('#condition').html(condition);
-
+        const temperature = Math.floor(days[0].main.temp);
+        const feels_like = Math.floor(days[0].main.feels_like);
+        const humidity = Math.floor(days[0].main.humidity);
+        const weather = days[0].weather[0].description;
+        $('#temperature').html(`${temperature}°`);
+        $('#feels_like').html(`${feels_like}°`);
+        $('#humidity').html(`${humidity}%`);
+        $('#weather').html(weather);
+        return data; 
+    }).then(data => {
         console.log('push...');
         for (i = 0; i < data.length; i=i+2) {
-            var time_f = moment(data[i].dt_txt).format("H[h][; ]dddd Do");
+            const time_f = moment(data[i].dt_txt).format("H[h][; ]dddd Do");
             time.push(time_f);
             temp.push(data[i].main.temp);
             feels.push(data[i].main.feels_like);
             weather.push(data[i].weather[0].description);
             iconId.push(data[i].weather[0].icon);
         }
+        return iconId; 
+    }).then(iconId => {
         for (i = 0; i < iconId.length; i++) {
             var img = new Image();
             var imgCode = iconId[i];
             img.src = `http://openweathermap.org/img/wn/${imgCode}.png`;
             icon.push(img);
         }
-
+        
         console.log('canvas...');
         var ctx = $('#canvas')[0].getContext('2d');
         window.myLine = new Chart(ctx, configChart);
-
-    });
-
+        
+    }); 
+    
 })
 
 
@@ -143,3 +152,4 @@ var configChart = {
             }
         }
     };
+    

@@ -21,7 +21,7 @@ ol, ul {
 
 body * {
 	font-family: 'Poppins', sans-serif;
-	border: 2px dashed lightpink;
+	/* border: 2px dashed lightpink; */
 }
 
 body {
@@ -31,10 +31,54 @@ body {
 body>* {
 	margin: auto;
 	padding: 5px 0 10px 0;
-	width: 50%;
+	width: 75%;
 	min-width: 400px;
 	max-width: 700px;
 }
+
+.searchBar {
+    margin: 10px 0 5px 0;
+    display: flex;
+    height: 45px;
+}
+
+.searchTerm {
+    width: 100%;
+    min-width: 200px;
+    border: 5px solid lightseagreen;
+    border-right: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    font-size: 15px;
+}
+
+.searchTerm:focus {
+    color: black;
+}
+
+.searchButton {
+    width: 200px;
+    border: 5px solid lightseagreen;
+    background: lightseagreen;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#city {
+	text-align: center; 
+}
+
+.meteo .wrap > * {
+	padding: 5px;
+	text-align: center; 
+}
+
+
 
 canvas {
 	width: 95%;
