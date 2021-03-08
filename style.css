@@ -21,7 +21,7 @@ ol, ul {
 
 body * {
 	font-family: 'Poppins', sans-serif;
-	/* border: 2px dashed lightpink; */
+	border: 1px dashed lightpink;
 }
 
 body {
@@ -37,36 +37,36 @@ body>* {
 }
 
 .searchBar {
-    margin: 10px 0 5px 0;
-    display: flex;
-    height: 45px;
+	margin: 10px 0 5px 0;
+	display: flex;
+	height: 45px;
 }
 
 .searchTerm {
-    width: 100%;
-    min-width: 200px;
-    border: 5px solid lightseagreen;
-    border-right: none;
-    padding: 5px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #9DBFAF;
-    font-size: 15px;
+	width: 100%;
+	min-width: 200px;
+	border: 5px solid lightseagreen;
+	border-right: none;
+	padding: 5px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	color: #9DBFAF;
+	font-size: 15px;
 }
 
 .searchTerm:focus {
-    color: black;
+	color: black;
 }
 
 .searchButton {
-    width: 200px;
-    border: 5px solid lightseagreen;
-    background: lightseagreen;
-    text-align: center;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 20px;
+	width: 200px;
+	border: 5px solid lightseagreen;
+	background: lightseagreen;
+	text-align: center;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	font-size: 20px;
 }
 
 #city {
@@ -80,11 +80,27 @@ body>* {
 
 
 
-canvas {
+#canvas {
 	width: 95%;
 	height: 600px;
 	min-width: 600px;
 	max-width: 95%;
-
+	
 	white-space: pre;
 }
+
+.wrap-map { 
+	/* position: absolute;  */
+	/* top: 0;  */
+	/* bottom: 0;  */
+	margin-top: 10px;
+	width: 95%;
+	height: 600px; 
+	overflow: hidden;
+}
+
+#map {
+	width: 100%;
+	height: 100%; 
+}
+

@@ -7,23 +7,46 @@
 	<meta name="viewport" content="width=device-width">
 	
 	<title>Météo - Weather App</title>
-	<link rel="stylesheet" href="style.css">
 	
+	
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"> 
+	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css">
+	
+	<!-- cdn: jQuery | chart.js | Algolia | mapbox | leaflet -->
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script> 
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> 
+	<!-- to facilitate formatting datetime -->
 	<script src="moment.min.js"></script>
 	
+	<!-- mapbox dependancies -->
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css">
+	<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+	
+	<link rel="stylesheet" href="style.css"> 
+	<link rel="stylesheet" href="map.css"> 
+	
 	<script type='text/javascript' src='key.js'></script>
-	<script type="text/javascript" src="script.js"></script>
+	<script type="module" src="map.js"></script>
+	<script type="module" src="meteo.js"></script>
+
 </head>
 <body>
-	
-	<div class="wrap-search">
-		<form class="searchBar" name="form" action="" method="post">
-			<input type="text" class="searchTerm" name="name" placeholder="Search a city ...">
-			<button type="submit" class="searchButton" name="submit">Enter</button>
-		</form>
+	<div class="wrap-map">
+		<div id="map"></div>
 	</div>
+
+	<!-- <div class="wrap-search">
+		<form class="searchBar" name="form" action="" method="post">
+			<input type="search" id="city" class="searchTerm" placeholder="Search a city ...">
+			<button type="submit" class="searchButton">Enter</button>
+		</form>
+	</div> -->
 	
 	<div class="meteo">
 		<h1 id="city">City</h1>
@@ -39,10 +62,13 @@
 	
 	
 	
+	
 </body>
+
 <script>
+
 	
-	
+
 </script>
 
 

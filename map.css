@@ -1,0 +1,29 @@
+#map {
+    overflow: visible;
+    margin-top: 80px;
+}
+
+
+
+#map .mapboxgl-ctrl-top-right {
+    top: -70px; 
+    /* margin: auto; */
+    left: 15%;
+    right: auto;
+    width: 70%;
+
+    /* margin-top: 30px; */
+    z-index: 0;
+}
+
+
+#map .mapboxgl-ctrl-geocoder {
+    /* position: relative; */
+    /* margin: 10px; */
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    /* margin-top: -40px;  */
+    z-index: 0;
+  }
+

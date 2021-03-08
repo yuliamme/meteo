@@ -1,28 +1,37 @@
 
+import map from './map.js';
+
 // arrays for various chart data 
-var time = [];
-var temp = [];
-var feels = [];
-var weather = [];
-var iconId = [];
-var icon = [];
+const time = [];
+const temp = [];
+const feels = [];
+const weather = [];
+const iconId = [];
+const icon = [];
+
+
 
 $(document).ready(function() {
-    console.log("loading script.js");
+    console.log("loading meteo.js");
     
-    const API_KEY = key.MY_KEY; 
+    const API_KEY = openweathermap_key.KEY; 
     const city_name = 'Marseille';
     $('#city').html(city_name);
     
+    // return a LngLat object such as {lng: 0, lat: 0}
+    // var {lng,lat} = map.getCenter(); 
+    // console.log('longitude: ', lng, 'latitude: ', lat); 
+    console.log('longitude: ', coord.lng, 'latitude: ', coord.lat); 
+
     // openweathermap.org/forecast5
     // get timestamped data every 3hrs for 5 days, total 8data/day * 5days = 40 entries
-    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&mode=json&units=metric&appid=${API_KEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${coord.lat}&lon=${coord.lng}&mode=json&units=metric&appid=${API_KEY}`;
     
     $.getJSON(url).then(res => {
         console.log('suuuuuup',res.list[0]); 
         const data = res.list; 
         const days = []; 
-        for (i = 4; i < data.length; i=i+8) {
+        for (let i = 4; i < data.length; i=i+8) {
             days.push(data[i]);
         }
         const temperature = Math.floor(days[0].main.temp);
@@ -36,7 +45,7 @@ $(document).ready(function() {
         return data; 
     }).then(data => {
         console.log('push...');
-        for (i = 0; i < data.length; i=i+2) {
+        for (let i = 0; i < data.length; i=i+2) {
             const time_f = moment(data[i].dt_txt).format("H[h][; ]dddd Do");
             time.push(time_f);
             temp.push(data[i].main.temp);
@@ -46,15 +55,15 @@ $(document).ready(function() {
         }
         return iconId; 
     }).then(iconId => {
-        for (i = 0; i < iconId.length; i++) {
-            var img = new Image();
-            var imgCode = iconId[i];
+        for (let i = 0; i < iconId.length; i++) {
+            const img = new Image();
+            const imgCode = iconId[i];
             img.src = `https://openweathermap.org/img/wn/${imgCode}.png`;
             icon.push(img);
         }
         
         console.log('canvas...');
-        var ctx = $('#canvas')[0].getContext('2d');
+        const ctx = $('#canvas')[0].getContext('2d');
         window.myLine = new Chart(ctx, configChart);
         
     }); 
@@ -63,7 +72,7 @@ $(document).ready(function() {
 
 
 
-var configChart = {
+const configChart = {
     type: 'line',
     data: {
         labels: time,
@@ -117,7 +126,7 @@ var configChart = {
                         maxRotation: 0,
                         minRotation: 0,
                         callback:function(label){
-                            var time = label.split("; ")[0];
+                            const time = label.split("; ")[0];
                             return time;
                         }
                     }
@@ -132,8 +141,8 @@ var configChart = {
                         maxRotation: 45,
                         minRotation: 0,
                         callback:function(label){
-                            var time = label.split("; ")[0];
-                            var day = label.split("; ")[1];
+                            const time = label.split("; ")[0];
+                            const day = label.split("; ")[1];
                             if(time === "3h" || time === "6h"){
                                 return day;
                             }else{
