@@ -55,6 +55,22 @@ $(document).ready(function(){
         
         $('#map').find('.mapboxgl-ctrl-geocoder--input').attr('placeholder','Search a city...  ex. Marseille');
         
+
+
+
+        // const input = document.querySelector('.mapboxgl-ctrl-geocoder--input');
+
+        // input.addEventListener('change', function (e) {
+        //     e.preventDefault();
+
+        //     coord = map.getCenter(); 
+        //     console.log('input changed'); 
+        //     console.log('longitude: ', coord.lng, 'latitude: ', coord.lat); 
+        
+
+        // });
+
+
     })
 
     export default map;

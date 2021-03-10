@@ -21,7 +21,33 @@ $(document).ready(function() {
     // return a LngLat object such as {lng: 0, lat: 0}
     // var {lng,lat} = map.getCenter(); 
     // console.log('longitude: ', lng, 'latitude: ', lat); 
-    console.log('longitude: ', coord.lng, 'latitude: ', coord.lat); 
+    // console.log('longitude: ', coord.lng, 'latitude: ', coord.lat); 
+
+
+
+    const input = document.querySelector('.mapboxgl-ctrl-geocoder--input');
+
+    input.addEventListener('change', function (e) {
+        e.preventDefault();
+
+        var tempfunc = setInput;
+
+window.setInput = function() {
+    tempfunc();
+
+    // do what you need to do in the event listener here
+    alert('Hello, this is the other part of the message!');
+}
+
+        // coord = map.getCenter(); 
+        console.log('input changed'); 
+        console.log('longitude: ', coord.lng, 'latitude: ', coord.lat); 
+    
+
+    // });
+
+
+
 
     // openweathermap.org/forecast5
     // get timestamped data every 3hrs for 5 days, total 8data/day * 5days = 40 entries
@@ -67,6 +93,10 @@ $(document).ready(function() {
         window.myLine = new Chart(ctx, configChart);
         
     }); 
+
+
+});
+
     
 })
 
